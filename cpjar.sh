@@ -1,1 +1,1 @@
-cp target/saim_-0.1-SNAPSHOT.jar /Applications/Fiji.app/plugins/
+cp target/saim_*.jar /Applications/Fiji.app/plugins/

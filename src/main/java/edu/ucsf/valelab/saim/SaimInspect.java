@@ -62,7 +62,7 @@ public class SaimInspect implements PlugIn, DialogListener {
    @Override
    public void run(String arg) {
       final NonBlockingGenericDialog gd = new NonBlockingGenericDialog(
-              "Saim Inspect " + Version.VERSION);
+              "Saim Inspect " + Version.CURRENT_VERSION);
       
       SaimData sd = (SaimData) SaimPrefs.getObject(SaimPrefs.SAIMDATAKEY);
       if (sd != null) {

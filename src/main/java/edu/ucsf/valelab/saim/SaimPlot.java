@@ -115,7 +115,7 @@ public class SaimPlot implements PlugIn, DialogListener
     public void run(String arg) {
 
         final NonBlockingGenericDialog gd = new NonBlockingGenericDialog(
-                "Saim Plot  " + Version.VERSION);
+                "Saim Plot  " + Version.CURRENT_VERSION);
 
         SaimData sd = (SaimData) SaimPrefs.getObject(SaimPrefs.SAIMDATAKEY);
         if (sd != null) {

@@ -26,5 +26,7 @@ package edu.ucsf.valelab.saim;
  * @author nico
  */
 public class Version {
-   public static final String VERSION = "1.0.7";
+   // This only works when run from the maven-build jar (i.e. not under Netbeans) 
+   public final static String CURRENT_VERSION = 
+           Version.class.getPackage().getImplementationVersion();
 }

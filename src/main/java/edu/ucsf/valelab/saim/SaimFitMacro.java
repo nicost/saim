@@ -62,7 +62,6 @@ public class SaimFitMacro implements PlugIn, DialogListener {
       gd.addCheckbox("Mirror around 0", sd_.mirrorAround0_);
       gd.addCheckbox("Angle 0 is doubled", sd_.zeroDoubled_);
       gd.setInsets(15, 0, 3);
-      // gd.addCheckbox("Use B * angle", sd_.useBAngle_);
       gd.addMessage("Guess:");
       gd.addNumericField("A", sd_.A_, 0);
       gd.addNumericField("B", sd_.B_, 0);
@@ -72,9 +71,6 @@ public class SaimFitMacro implements PlugIn, DialogListener {
       gd.addNumericField("Threshold", sd_.threshold_, 0);
       gd.setInsets(15, 0, 3);
 
-      gd.addPreviewCheckbox(null, "Fit");
-
-      //gd.hideCancelButton();
       gd.addHelp("http://fiji.sc/Saim");
       gd.setOKLabel("Fit");
 
@@ -90,21 +86,6 @@ public class SaimFitMacro implements PlugIn, DialogListener {
 
    @Override
    public boolean dialogItemChanged(GenericDialog gd, AWTEvent e) {
-
-      if (!gd.isPreviewActive()) {
-         if (isRunning_.get()) {
-            // try to abort the analysis
-            if (oft_ != null && oft_.isAlive()) {
-               // note, there could be a race condition here, probably not worth looking into
-               oft_.stopRun();
-            }
-         }
-      }
-
-      if (gd.isPreviewActive()) {
-         return analyze(gd);
-      }
-
       return true;
    }
 
@@ -117,7 +98,6 @@ public class SaimFitMacro implements PlugIn, DialogListener {
       sd_.angleStep_ = gd.getNextNumber();
       sd_.mirrorAround0_ = gd.getNextBoolean();
       sd_.zeroDoubled_ = gd.getNextBoolean();
-      // sd_.useBAngle_ = gd.getNextBoolean();
       sd_.A_ = gd.getNextNumber();
       sd_.B_ = gd.getNextNumber();
       try {

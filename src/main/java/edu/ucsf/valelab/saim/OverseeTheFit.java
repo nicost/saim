@@ -129,11 +129,13 @@ public class OverseeTheFit extends Thread {
             ij.IJ.showProgress(1);
             ij.IJ.showStatus("");
             isRunning_.set(false);
-            gd_.getPreviewCheckbox().setState(false);
+            if (gd_.getPreviewCheckbox() != null) {
+               gd_.getPreviewCheckbox().setState(false);
+            }
             ij.IJ.log("Analysis took "
                     + (System.nanoTime() - startTime) / 1000000 + "ms");
         } catch (InterruptedException ex) {
-            ij.IJ.log("fitThread was interupted");
+            ij.IJ.log("FitThread was interupted");
         }
     }
 

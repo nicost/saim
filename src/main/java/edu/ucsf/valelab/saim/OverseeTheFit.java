@@ -66,7 +66,10 @@ public class OverseeTheFit extends Thread {
 
     @Override
     public void run() {
-
+       doTheFit();
+    }
+    
+    public void doTheFit() {
         final ImagePlus ip = WindowManager.getCurrentImage();
         if (ip == null) {
             IJ.noImage();

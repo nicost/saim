@@ -139,8 +139,8 @@ public class SaimFitMacro implements PlugIn, DialogListener {
 
       oft_ = new OverseeTheFit(gd, sd_, isRunning_);
 
-      oft_.start();
-
+      oft_.doTheFit();
+      
       return true;
    }
 
